@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<!-- 3. Дано масив імен учнів. З’ясувати скільки разів зустрічається 
+    ім’я «Іван». -->
+
+<body>
+    <script>
+        let nameArr = ['Йоужі', 'Омбруш', 'Пішта', 'Іван', 'Лоці', 'Золтан', 'Іштван', 'Отти', 'Іван']
+        let ivanCount = 0
+        for (let i = 0; i < nameArr.length; i++) {
+            if ('Іван' == nameArr[i])
+                ivanCount++
+        }
+        document.write(`Ім'я "Іван" зустрічається ${ivanCount} рази`)
+    </script>
+</body>
+
+</html>

@@ -17,28 +17,65 @@
 <body>
 
     <script>
-        let arr = []
+        let arr=[]
         for (let i = 0; i < 7; i++) {
             let el = parseInt(prompt(`Введіть кількість відвідувачів у ${i + 1}-ий день тижня`))
             arr.push(el)
         }
-        let min = Math.min.apply(null, arr)
-        let dayMin = arr.indexOf(min) + 1
-        let max = Math.max.apply(null, arr)
-        let dayMax = arr.indexOf(max) + 1
-        let les20arr = []
-        for (let i = 0; i < arr.length; i++) {
-            if (arr[i] < 20)
-                les20arr += i + 1
+
+        function min(arr) {
+            let min = arr[0]
+            for (let i = 0; i < arr.length; i++) {
+                if (min >= arr[i])
+                    min = arr[i]
+            }
+            return min
         }
+
+        function dayMin(arr) {
+            let minDay = min(arr)
+            for (let i = 0; i < arr.length; i++) {
+                if (minDay == arr[i])
+                    return i + 1
+            }
+        }
+
+        function max(arr) {
+            let max = arr[0]
+            for (let i = 1; i < arr.length; i++) {
+                if (max <= arr[i]) {
+                    max = arr[i]
+                }
+
+            }
+            return max
+        }
+
+        function dayMax(arr) {
+            let maxDay = max(arr)
+            for (let i = 0; i < arr.length; i++) {
+                if (maxDay == arr[i])
+                    return i + 1
+            }
+        }
+
+
+        function les20(arr) {
+            let les20arr = []
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] < 20)
+                    les20arr.push(i)
+            }
+            return les20arr
+        }
+
         let clientCount5 = 0
         for (let i = 0; i < 5; i++) {
             clientCount5 += arr[i]
         }
         let clientCountWeek = arr[5] + arr[6]
-        document.write(`Дні коли було <20: ${les20arr}, мінімально було ${min} 
-        людей у ${dayMin} день, максимально було ${max} людей, у ${dayMax} день
-        у будні було ${clientCount5} на вихідні було ${clientCountWeek}`)
+
+        document.write(`Дні коли було <20: ${les20(arr)}, мінімально було ${min(arr)} людей у ${dayMin(arr)} день, максимально було ${max(arr)} людей, у ${dayMax(arr)} день у будні було ${clientCount5} на вихідні було ${clientCountWeek}`)
     </script>
 
 </body>

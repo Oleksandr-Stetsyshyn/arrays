@@ -25,35 +25,31 @@
         }
 
         function studentRank(arr) {
-            if (arr.some(mark => mark == 2)) // варіант з методички
-                return "Двійочник"
-            if (arr.some(mark => mark == 3))
-                return "Трійочник"
-            if (arr.some(mark => mark == 4))
-                return "Хорошист"
-            else
-                return "Відмінник"
+            let min = arr[0]
+            for (let i = 0; i < arr.length; i++) {
+                if (min > arr[i])
+                    min = arr[i]
 
+            }
+            switch (min) {
+                case 1:
+                case 2:
+                case 3: return "двійочник"
+                case 4:
+                case 5:
+                case 6: return "трійочник"
+                case 7:
+                case 8:
+                case 9: return "хорошист"
+                case 10:
+                case 11:
+                case 12: return "відмінник"
 
-            // довго та нудно
-            // for (let i = 0; i < arr.length; i++) {
-            //     if (arr[i] < 3)
-            //         return "Двійочник"
-            // }
-            // for (let i = 0; i < arr.length; i++) {
-            //     if (arr[i] < 4)
-            //         return "Трійочник"
-            // }
-            // for (let i = 0; i < arr.length; i++) {
-            //     if (arr[i] < 5)
-            //         return "Хорошист"
-            // }
-            // for (let i = 0; i < arr.length; i++) {
-            //     if (arr[i] <= 5)
-            //         return "Відмінник"
-
+                default: return "помилка"
+            }
         }
-        document.write(`${studentRank(arr)} Середній бал: ${averageMark(arr).toFixed(2)}`)
+
+        document.write(`${averageMark(arr)} Середній бал: ${studentRank(arr)}`)
     </script>
 </body>
 
