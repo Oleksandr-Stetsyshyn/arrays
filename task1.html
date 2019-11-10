@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<!-- Задача 1. Дано послідовність номерів автомобілів. 
+Підрахувати кількість номерів, які :
+починаються на букву «А»;
+перша і остання літери співпадають;
+складаються з більше ніш 5 символів; -->
+
+<body>
+    <script>
+        var avtoNumArr = ['AM456AO', 'OK4227AO', 'FK7F', 'AM4567AY', 'AK456', 'OK4237AO', 'FK4567F', 'AK4567AY']
+
+        function isFirstA(avtoNumArr) {
+            let oneNumbList = []
+
+            for (let i = 0; i < avtoNumArr.length; i++) {
+                let oneNumb = avtoNumArr[i].split('')
+
+                if (oneNumb[0] == 'A')
+                    oneNumbList.push(' ' + avtoNumArr[i])
+            }
+            return oneNumbList
+        }
+
+        function firstLastSame(avtoNumArr) {
+            let oneNumbList = []
+
+            for (let i = 0; i < avtoNumArr.length; i++) {
+                let oneNumb = avtoNumArr[i].split('')
+
+                if (oneNumb[0] == oneNumb[oneNumb.length - 1])
+                    oneNumbList.push(' ' + avtoNumArr[i])
+            }
+            return oneNumbList
+        }
+
+        function moreThan5(avtoNumArr) {
+            let oneNumbList = []
+
+            for (let i = 0; i < avtoNumArr.length; i++) {
+                let oneNumb = avtoNumArr[i].split('')
+
+                if (oneNumb.length > 5)
+                    oneNumbList.push(' ' + avtoNumArr[i])
+            }
+            return oneNumbList
+        }
+
+
+        document.write(`Номери де перша літера "A": ${isFirstA(avtoNumArr)}<br>
+         Номери в яких перша і останя літери співпадають: ${firstLastSame(avtoNumArr)} <br>
+         Номери в яких більше 5 символів: ${moreThan5(avtoNumArr)}`)
+
+    </script>
+</body>
+
+</html>

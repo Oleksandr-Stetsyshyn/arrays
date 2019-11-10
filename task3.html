@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<!-- Задача 3. Дано послідовність цін товарів та назв (у окремих масивах).
+    Вивести на екран ті, які може собі дозволити користувач (кількість грошей задається). -->
+
+<body>
+    <script>
+        goodsArr = ['Лижі', 'Граблі', 'Чоботи', 'Окуляри', 'Вудочка', 'Ракетка', 'Телевізор', 'Самокат', 'Тримбіта', 'Сковорідка', 'Холодильник']
+        priceArr = [500, 50, 800, 150, 400, 1500, 2500, 2000, 800, 500, 5000]
+        let sum = parseInt(prompt('Введіть суму скільки грошей маєте:'))
+
+        function calculatione(goodsArr, priceArr, sum) {
+            let newGoodsArr = []
+            for (let i = 0; i < priceArr.length; i++) {
+                if (priceArr[i] <= sum)
+                    newGoodsArr.push(goodsArr[i])
+            }
+            return newGoodsArr
+        }
+        document.write(`Ваших грошей вистачить на такі речі: ${calculatione(goodsArr, priceArr, sum)}`)
+    </script>
+</body>
+
+</html>

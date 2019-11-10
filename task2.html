@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Задача 2. Дано послідовність оцінок учня.
+        Підрахувати кількість двійок
+        кількість хороших оцінок (добре, відмінно);
+        кількість оцінок, які нижче середнього. -->
+
+    <script>
+        let arrString = prompt("Введіть оцінки учня розділені пробілом:").split(' ')
+        marksArr = []
+        for (let i = 0; i < arrString.length; i++) {
+            marksArr.push(parseInt(arrString[i]))
+        }
+
+        function bedMarks(marksArr) {
+            let bedMarksCounter = 0
+            for (let i = 0; i < marksArr.length; i++) {
+                if (marksArr[i] == 2)
+                    bedMarksCounter++
+            }
+            return bedMarksCounter
+        }
+
+        function wellMarks(marksArr) {
+            let countWellMarks = 0
+            for (let i = 0; i < marksArr.length; i++) {
+                if (marksArr[i] > 3)
+                    countWellMarks++
+            }
+            return countWellMarks
+        }
+
+        function lowAverage(marksArr) {
+            let serSum = 0
+            let countBedMarks = 0
+            for (let i = 0; i < marksArr.length; i++) {
+                serSum += marksArr[i]
+            }
+            serSum /= marksArr.length
+            for (let j = 0; j < marksArr.length; j++) {
+                if (marksArr[j] < serSum)
+                    countBedMarks++
+            }
+            return countBedMarks
+        }
+
+
+        document.write(`Кількість двійок: ${bedMarks(marksArr)}<br>
+        Кількість хороших оцінок: ${wellMarks(marksArr)}<br>
+        Кількість оцінок нижче сереньньої ${lowAverage(marksArr)}`)
+
+    </script>
+</body>
+
+</html>
